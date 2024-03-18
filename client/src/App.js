@@ -51,15 +51,17 @@ function App() {
   
     cookieValue = token() // Set your desired cookie value
 
-    console.log(cookieValue)
+    console.log("The created cookieValue is " + cookieValue);
     if (!Cookies.get(cookieName)) {
+      console.log("Applying cookie value...");
       Cookies.set(cookieName, cookieValue, { expires: 7 }); // Set the cookie with a 7-day expiration
       createSession(cookieValue);
     }
 
   }, []);
 
-
+  console.log("Verifying if React can get the session Cookie...")
+  console.log(Cookies.get('session'))
   return (
     <div className="App">
           <BrowserRouter>
