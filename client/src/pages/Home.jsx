@@ -9,7 +9,6 @@ const Home = () =>{
             <div style={{marginTop: "120px"}}>
             
                 <Image src="/images/logo.png" height={140}></Image>
-                <ver>Beta</ver>
                 <WhiteSpace height={170}/>
                 <div className="big-title-text">Fast. Simple. Effective.</div>
             </div>
