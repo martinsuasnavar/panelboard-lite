@@ -1,5 +1,4 @@
 .navbar{
-    display: flex;
     position: fixed;
     width: 100%;
     background-color: black;
@@ -9,3 +8,23 @@
         margin: 0px;
     }
 }
+
+.nav-buttons{
+    display: flex;
+}
+
+@media (max-width: 800px)  {
+    .navbar{
+        width: 40px;
+        height: 100%;
+    }
+    .nav-buttons{
+        display: block;
+        margin: 10px;
+        ul{
+            margin-left: -100px;
+            margin-top: 40px;
+        }
+    }
+}
+

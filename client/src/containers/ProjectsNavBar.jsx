@@ -102,20 +102,19 @@ const ProjectsNavBar = ({sessionKey, updatedStatus}) =>{
 
     return(
         <ul className="navbar" >
-        <AddButton onClick={createProject} squareSize={27}></AddButton>
-            {projects.map((aProject, index) =>(
-                <ul key={index}>
-                    {aProject.project_id == project ? (
-                        <li><ProjectButton selected={true} onClick={() => navigateToProject(aProject.project_id, index, aProject.project_name)}>
-                            {aProject.project_name}
-                        </ProjectButton></li>
-                      ) : (
-                        <li><ProjectButton selected={false} onClick={() => navigateToProject(aProject.project_id, index, aProject.project_name)}>
-                            {aProject.project_name}
-                        </ProjectButton></li>
-                      )}
-                </ul>
-            ))}
+            <div style={{display: 'flex'}}>
+                <AddButton onClick={createProject} squareSize={27}></AddButton>
+        
+                <div className="nav-buttons">
+                    {projects.map((aProject, index) =>(
+                        <ul  key={index}>
+                            <li><ProjectButton selected={aProject.project_id == project} onClick={() => navigateToProject(aProject.project_id, index, aProject.project_name)}>
+                                {aProject.project_name}
+                            </ProjectButton></li>
+                        </ul>
+                    ))}
+                </div>
+            </div>
         </ul>
     );
 };
