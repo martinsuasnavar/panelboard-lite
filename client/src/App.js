@@ -41,13 +41,12 @@ function App() {
   };
 
   const createSession = async (key) =>{
-    await callApi(`${backendDomain}/create-session`, 'POST', { key: key});
+    await callApi(`${backendDomain}/create-session`, 'POST', { key: key });
   };
 
   let cookieValue = null;
   const cookieName = 'session';
   useEffect(() => {
-    getAllProjects();
     // Generate a new cookie when the component mounts
   
     cookieValue = token() // Set your desired cookie value

@@ -20,11 +20,11 @@ router.post('/create-session', async (req, res) => {
     const { body: { key } } = req.body;
     try {
         await db.create('session', { key: key });
+        console.log("Creating a new session...");
         res.status(201).json({ key: key });
-        console.log("Creating a new note...");
     } catch (error) {
-        console.error('Error creating note:', error.message);
-        res.status(500).json({ error: 'Internal Server Error' });
+        console.error('Error creating session:', error.message);
+        res.status(500).json({ error: error.message });
     }
 });
 
