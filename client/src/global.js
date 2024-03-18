@@ -1,12 +1,26 @@
 import { callApi } from "./supports/Fetch/Fetch";
 
-//BACKEND_DOMAIN
-export const backendDomain = `https://panelboard-lite-api.vercel.app/api` //vercel hoster
-//export const backendDomain = `http://localhost:5000/api`; //local development
+
+
+//BACKEND_DOMAIN_API
+const localHost = false;
+const localPort = 5000;
+
+let backendDomain = `https://panelboard-lite-api.vercel.app/api`;
+if (localHost){
+    backendDomain = `http://localhost:${localPort}/api`;
+}
+export { backendDomain };
+
+
+
 
 //SELECTED_PROJECT_ID
 let selectedProjectId = { value: 11 };
 export { selectedProjectId };
+
+
+
 
 //CURRENT_PROJECT_NAME
 let currentProjectName = { value: 'undefined '};
@@ -14,6 +28,7 @@ export { currentProjectName };
 
 
 
+//get data arrays, unnecessary?
 var projectArray = [];
 const dataReferences = ['sessions', 'projects', 'panels', 'notes'];
 var DATA_ARRAYS = [];
