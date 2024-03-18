@@ -41,7 +41,14 @@ function App() {
   };
 
   const createSession = async (key) =>{
-    await callApi(`${backendDomain}/create-session`, 'POST', { key: key });
+    
+    console.log("Creating cookie with value "  + key);
+    const response = await callApi(`${backendDomain}/create-session`, 'POST', { key: key });
+    if (response.ok){
+      console.log('Cookie with value ' + key + ' created!')
+    }else{
+        console.error("Couldn't create cookie");
+    }
   };
 
   let cookieValue = null;
@@ -64,6 +71,7 @@ function App() {
   console.log(Cookies.get('session'))
   return (
     <div className="App">
+        {}
           <BrowserRouter>
          <ProjectsNavBar sessionKey={Cookies.get('session')} updatedStatus={crudCounter} projects={projects}/>
           <Routes>
