@@ -1,8 +1,8 @@
 import { callApi } from "./supports/Fetch/Fetch";
-//export const backendDomain = `https://panelboard-lite-api.vercel.app/api` //vercel hoster
 
 //BACKEND_DOMAIN
-export const backendDomain = `http://localhost:5000/api`; //local development
+export const backendDomain = `https://panelboard-lite-api.vercel.app/api` //vercel hoster
+//export const backendDomain = `http://localhost:5000/api`; //local development
 
 //SELECTED_PROJECT_ID
 let selectedProjectId = { value: 11 };
