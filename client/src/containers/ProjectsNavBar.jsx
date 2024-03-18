@@ -36,7 +36,7 @@ const ProjectsNavBar = ({sessionKey, updatedStatus}) =>{
         setProjects(data);
     }
     
-    console.log(projects)
+    //console.log(projects)
     let currentProjectIndex = 0;
 
 

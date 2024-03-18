@@ -36,7 +36,7 @@ const getAllDataTypes = async () => {
     for (let i = 0; i < dataReferences.length; i++){
         const response = await callApi(`${backendDomain}/${dataReferences[i]}`, "GET");
 
-        console.log('new data: ' +  DATA_ARRAYS[i])
+        //console.log('new data: ' +  DATA_ARRAYS[i])
     }
     projectArray = await callApi(`${backendDomain}/projects`, "GET");
 }
