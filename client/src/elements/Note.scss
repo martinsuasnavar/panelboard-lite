@@ -1,0 +1,51 @@
+@import '../global.scss';
+$font-size: 0.8rem;
+
+.note-section{
+    display: flex;
+}
+
+.note{
+    padding: 10px;
+    
+     text-align: left;
+     width: 200px;
+     height: 14px;
+     background-color: rgba(254, 117, 117, 0.3);
+     border-radius: 10px;
+     margin: 10px;
+     font-size: $font-size;
+     
+     cursor: pointer;
+     textarea{
+      width: 100%;
+      white-space: nowrap;
+      font-family: Tahoma, Verdana, Segoe, sans-serif; font-style: normal; font-variant: normal;
+         font-size: $font-size;
+        background-color: rgba(0, 0, 0, 0);
+        resize: none;
+        border: none;
+        outline: none;
+     }
+     content{
+        margin: 0px;
+     }
+      /*non selection text*/
+      -webkit-touch-callout: none; /* iOS Safari */
+      -webkit-user-select: none; /* Safari */
+      -khtml-user-select: none; /* Konqueror HTML */
+         -moz-user-select: none; /* Old versions of Firefox */
+         -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                    supported by Chrome, Edge, Opera and Firefox */
+ }
+
+ .note-edit-zone{
+    
+    display: flex;
+ }
+
+ .note-buttons{
+    display: flex;
+ }
+ 

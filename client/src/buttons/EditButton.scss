@@ -1,0 +1,31 @@
+$button-color: rgb(20, 195, 87);
+
+.edit-button{
+    background-color: $button-color;
+    color: white;
+    font-weight: 500;
+    position: relative;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    /*non selection text*/
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+  content{
+    display: flex;
+    justify-content: center;
+      align-items: center;
+    
+  }
+}
+
+.edit-button:hover{
+  background-color: lighten($color: $button-color, $amount: 20);
+}

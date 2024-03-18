@@ -1,0 +1,40 @@
+$hover-color: darken($color: white, $amount: 10);
+$active-color:  darken($color: white, $amount: 40);
+
+.project-button{
+    color: black;
+    background-color: white;
+    padding: 2px;
+    border-radius: 10px;
+    border-color: white;
+    border-style: solid;
+    border-width: 1.5px;
+    height: 20px;
+    cursor: pointer;
+    /*non selection text*/
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+        -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+   
+}
+
+@media (max-width: 1250px) {
+    .project-button{
+        font-size: 0.75rem;
+        white-space: nowrap;
+    }
+}
+
+.project-button:hover{
+    background-color: $hover-color;
+    border-color: $hover-color;
+}
+
+.project-button:active{
+    background-color: $active-color;
+    border-color: $active-color;
+}

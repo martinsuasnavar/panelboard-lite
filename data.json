@@ -1,0 +1,42 @@
+{
+    "saved_project": [
+        {
+            "project_name": "Project 1",
+            "panels": [
+                {
+                    "panel_name": "TO DO",
+                    "notes": [
+                        {
+                            "content": ""
+                        }
+                    ]
+                },
+                {
+                    "panel_name": "DOING",
+                    "notes": [
+                        {
+                            "content": ""
+                        }
+                    ]
+                },
+                {
+                    "panel_name": "DONE",
+                    "notes": [
+                        {
+                            "content": ""
+                        },
+                        {
+                            "content": ""
+                        },
+                        {
+                            "content": ""
+                        },
+                        {
+                            "content": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

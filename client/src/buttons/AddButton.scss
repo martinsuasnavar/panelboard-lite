@@ -1,0 +1,32 @@
+$square-size: 20px;
+$button-color: greenyellow;
+
+.add-button{
+    background-color: $button-color;
+    font-weight: 500;
+    cursor: pointer;
+    /*non selection text*/
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome, Edge, Opera and Firefox */
+
+    .add-button-text{
+        margin: 2px;
+        text-align: center;
+    }
+}
+
+
+
+.add-button:hover{
+    background-color: lighten($color: $button-color, $amount: 20)
+}
+
+.add-button:active{
+    background-color: black;
+    color: $button-color;
+}

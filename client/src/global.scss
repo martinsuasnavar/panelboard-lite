@@ -1,0 +1,125 @@
+/*@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+*/
+
+$panel-color: white;
+$text-color: black;
+
+$global-font: 'Tahoma, Verdana, Segoe, sans-serif; font-style: normal; font-variant: normal; line-height: 26.4px';
+
+
+/////////////////
+// identifiers //
+/////////////////
+
+#footer{
+    justify-content: right;
+    display: flex;
+    position:absolute;
+    bottom: 70px;
+    width:100%;
+    height:60px;   /* Height of the footer */
+
+    .config-section{
+        margin: 4px;
+        position: fixed;
+        justify-content: space-around;
+    }
+}
+
+/////////////
+// classes //
+/////////////
+
+.panels{
+    justify-content: center;
+    display: flex;
+}
+
+
+.project-name-section{
+    margin-left: 20px;
+    display: flex;
+    .project-name-elements{
+        display: flex;
+        justify-content: left;
+    }
+    .project-name-change{
+        background-color: transparent;
+        height: 35px;
+        overflow-y: hidden;
+        color: white;
+        font-size: 2rem;
+        resize: none;
+        border: none;
+        outline: none;
+    }
+}
+
+.panels-container{
+    display: flex;
+    justify-content: left;
+}
+
+.big-title-text{
+    color: white;
+    font-size: 2rem;
+}
+
+
+//////////////
+// elements //
+//////////////
+
+
+body {
+    margin: 0;
+    font-family: Tahoma, Verdana, Segoe, sans-serif; font-style: normal; font-variant: normal; line-height: 26.4px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    background: url("../public/images/main-background.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+  
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+  
+
+ver{
+    color: white;
+}
+
+
+//////////
+// misc //
+//////////
+
+/*scrollbar*/
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: black;
+  }
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgb(0, 0, 0); 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+  }
+
+  
+  ::-webkit-scrollbar-thumb:hover {
+    color: rgb(158, 158, 158);
+  }
