@@ -16,6 +16,8 @@ const ProjectsNavBar = ({sessionKey, updatedStatus}) =>{
     const [project, setSelectedProject] = useState();
     const [currentProjectId, setCurrentProjectId] = useState(id);
 
+    console.log('The session key passed to ProjectsNavBar.jsx is ' + sessionKey);
+
     //
     //// fetching
     //
