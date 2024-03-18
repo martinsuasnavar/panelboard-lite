@@ -320,7 +320,7 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
                     
 
                     {/* dialog box conditional, in use if a project is about to be deleted */}
-                    {saveBox ? (
+                    {saveBox &&
                         <div>
                             <DialogBox headMessage={"Either save this project or open a new one. WARNING: Opening a new project overrides this one."}>
                                 
@@ -342,11 +342,7 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
 
                             </DialogBox>
                         </div>
-                    ):(
-                        <div>
-                            {/* nothing is displayed */}
-                        </div>
-                    )}
+                    }
 
 
                     {dialogBox &&
