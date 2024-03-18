@@ -349,7 +349,7 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
                     )}
 
 
-                    {dialogBox ? (
+                    {dialogBox &&
                         <div>
                             <DialogBox headMessage={"Are you sure you want to delete this project?"}>
 
@@ -365,11 +365,7 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
 
                             </DialogBox>
                         </div>
-                    ):(
-                        <div>
-                            {/* nothing is displayed */}
-                        </div>
-                    )}
+                    }
 
 
                     {/*********/}
