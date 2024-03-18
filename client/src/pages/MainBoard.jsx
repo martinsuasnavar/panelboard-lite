@@ -37,6 +37,8 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
     const [isEditingProjectName, setEditingProjectName] = useState(false);
     const [editedProjectNameValue, setEditedProjectNameValue] = useState(currentProjectName.name);
 
+    console.log('The session key passed to MainBoard.jsx is ' + sessionKey);
+
     const handleOpenFileClick = () => {
         const fileInput = document.getElementById("file-input");
         fileInput.click();
@@ -52,7 +54,7 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
     const verifyProject = async () =>{
         try {
             const response = await fetch(`${backendDomain}/authenticate-project?session=${sessionKey}&project=${id}`);
-            console.log('status: ' + response.status);
+            console.log('Status: ' + response.status + '. ');
             if (response.status === 200) {
                 console.log('This session is allowed to access this project');
                 setValidProjectBool(true);
