@@ -17,11 +17,11 @@ router.get('/sessions', async (req, res) => {
 
 router.post('/create-session', async (req, res) => {
     const { id } = req.params;
-    const { body: { key } } = req.body;
+    const { body: { session_key } } = req.body;
     try {
-        await db.create('session', { key: key });
+        await db.create('session', { session_key: session_key });
         console.log("Creating a new session...");
-        res.status(201).json({ key: key });
+        res.status(201).json({ session_key: session_key });
     } catch (error) {
         console.error('Error creating session:', error.message);
         res.status(500).json({ error: error.message });
