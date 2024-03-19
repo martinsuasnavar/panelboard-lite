@@ -28,7 +28,7 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
     const [dialogBox, setDialogBox] = useState();
     const [saveBox, setSaveBox] = useState();
    
-    const [projects, setProjects] = useState([]);
+    //const [projects, setProjects] = useState([]);
     const [validProject, setValidProjectBool] = useState(false);
 
     const [panels, setPanels] = useState([]); 
@@ -46,8 +46,6 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
     //console.log('session key is :' + sessionKey)
     useEffect (() =>{
         verifyProject();
-        getAllProjects();
-        projectFetchsPanels();
     }, [id])
 
 
@@ -68,12 +66,13 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
         }
     }
 
+    /*
     const getAllProjects = async () => {
         try {
             const data = await callApi(`${backendDomain}/projects`, "GET");
             if (data && data.length > 0) {
                 setProjects(data);
-                console.log(projects)
+                projectFetchsPanels();
             } else {
                 console.error("No projects were loaded");
             }
@@ -81,10 +80,7 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
             console.error("Error loading projects:", error);
         }
     };
-
-    const verifyProjectInSession =  () =>{
-        setValidProjectBool(true);
-    }
+    */
 
     const toggleProjectName = () => {
         setEditingProjectName(!isEditingProjectName);
