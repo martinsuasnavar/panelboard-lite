@@ -25,12 +25,12 @@ function App() {
       return rand() + rand(); // to make it longer
   };
 
-  const createSession = async (key) =>{
+  const createSession = async (newSessionKey) =>{
     
-    console.log("Creating cookie with value "  + key);
-    const response = await callApi(`${backendDomain}/create-session`, 'POST', { key: key });
+    console.log("Creating cookie with value "  + newSessionKey);
+    const response = await callApi(`${backendDomain}/create-session`, 'POST', { session_key: newSessionKey });
     if (response.ok){
-      console.log('Cookie with value ' + key + ' created!')
+      console.log('Cookie with value ' + newSessionKey + ' created!')
     }else{
         console.error("Couldn't create cookie");
     }
