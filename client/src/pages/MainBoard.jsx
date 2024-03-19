@@ -56,6 +56,7 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
             if (response.status === 200) {
                 console.log('This session is allowed to access this project');
                 setValidProjectBool(true);
+                projectFetchsPanels();
             } else if (response.status === 401) {
                 console.log('Error ' + response.status + '. Unauthorized access for this session.');
             } else {
