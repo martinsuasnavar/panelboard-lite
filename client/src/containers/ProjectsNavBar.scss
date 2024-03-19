@@ -1,3 +1,5 @@
+@import '../global.scss';
+
 .navbar{
     position: fixed;
     width: 100%;
@@ -13,7 +15,7 @@
     display: flex;
 }
 
-@media (max-width: 800px)  {
+@media (max-width: $mobile-width)  {
     .navbar{
         width: 40px;
         height: 100%;

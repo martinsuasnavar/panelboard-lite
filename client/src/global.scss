@@ -4,10 +4,11 @@
 */
 
 $panel-color: white;
-$text-color: black;
+$text-color: rgb(0, 0, 0);
 
 $global-font: 'Tahoma, Verdana, Segoe, sans-serif; font-style: normal; font-variant: normal; line-height: 26.4px';
 
+$mobile-width: 600px;
 
 /////////////////
 // identifiers //
@@ -31,6 +32,19 @@ $global-font: 'Tahoma, Verdana, Segoe, sans-serif; font-style: normal; font-vari
 /////////////
 // classes //
 /////////////
+
+.home{
+    display: "flex";
+    justify-content: "center";
+    margin-right: "auto";
+    margin-left: "auto";
+}
+
+@media (max-width: $mobile-width)  {
+    .home{
+        margin-right: -90px;
+    }
+}
 
 .panels{
     justify-content: center;
@@ -60,6 +74,16 @@ $global-font: 'Tahoma, Verdana, Segoe, sans-serif; font-style: normal; font-vari
 .panels-container{
     display: flex;
     justify-content: left;
+}
+
+@media (max-width: $mobile-width)  {
+    .project{
+        margin-left: 100px;
+    }
+    .panels-container{
+        display: block;
+        justify-content: left;
+    }
 }
 
 .big-title-text{

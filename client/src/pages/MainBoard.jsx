@@ -54,7 +54,7 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
         try {
             setLoading(true);
             const response = await fetch(`${backendDomain}/authenticate-project?session=${sessionKey}&project=${id}`);
-            console.log('Status: ' + response.status + '. ');
+            console.log('Getting the current project returned status: ' + response.status + '. ');
             if (response.status === 200) {
                 console.log('This session is allowed to access this project');
                 setValidProjectBool(true);
@@ -320,7 +320,7 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
             
                     </div>
                 ):(
-                    <div>
+                    <div className="project">
                         {/**************/}
                         {/* DIALOG BOX */}
                         {/**************/}

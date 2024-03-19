@@ -10,7 +10,7 @@ import { backendDomain } from './global';
 import { callApi } from './supports/Fetch/Fetch';
 
 function App() {
-  
+
   const [crudCounter, setCrudCounter] = useState(0);
  
   const countCrudStatus = () =>{
@@ -49,6 +49,7 @@ function App() {
       Cookies.set(cookieName, cookieValue, { expires: 7 }); // Set the cookie with a 7-day expiration
       createSession(cookieValue);
     }
+    countCrudStatus();
 
   }, []);
 
