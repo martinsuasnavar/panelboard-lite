@@ -308,7 +308,7 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
             {loading &&
                 <DialogBox headMessage={"Loading, please wait... "}></DialogBox>
             }
-            {!validProject ? (
+            {!validProject && !loading ? (
                 <div>
                     <DialogBox headMessage={"ERROR 401 - The permission to load up this project was not reached out. Please try again later. "}>
                     <EditButton width={120} height={30} 
