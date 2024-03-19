@@ -27,6 +27,7 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
     const { id } = useParams();
     const [dialogBox, setDialogBox] = useState();
     const [saveBox, setSaveBox] = useState();
+    const [loading, setLoading] = useState(true);
    
     //const [projects, setProjects] = useState([]);
     const [validProject, setValidProjectBool] = useState(false);
@@ -51,16 +52,20 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
 
     const verifyProject = async () =>{
         try {
+            setLoading(true);
             const response = await fetch(`${backendDomain}/authenticate-project?session=${sessionKey}&project=${id}`);
             console.log('Status: ' + response.status + '. ');
             if (response.status === 200) {
                 console.log('This session is allowed to access this project');
                 setValidProjectBool(true);
                 projectFetchsPanels();
+                setLoading(false);
             } else if (response.status === 401) {
                 console.log('Error ' + response.status + '. Unauthorized access for this session.');
+                setLoading(false);
             } else {
                 console.log('Error ' + response.status + '.');
+                setLoading(false);
             }
         } catch (error) {
             console.error('Error verifying project:', error);
@@ -300,7 +305,9 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
             {/**************/}
             {/* MAIN BOARD */}
             {/**************/}
-            
+            {loading &&
+                <DialogBox headMessage={"Loading, please wait... "}></DialogBox>
+            }
             {!validProject ? (
                 <div>
                     <DialogBox headMessage={"ERROR 401 - The permission to load up this project was not reached out. Please try again later. "}>

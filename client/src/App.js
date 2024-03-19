@@ -10,22 +10,7 @@ import { backendDomain } from './global';
 import { callApi } from './supports/Fetch/Fetch';
 
 function App() {
-
-
-  const [projects, setProjects] = useState();
-  const getAllProjects = async () => {
-    try {
-        const data = await callApi(`${backendDomain}/projects`, "GET");
-        if (data && data.length > 0) {
-            setProjects(data);
-        } else {
-            console.error("No projects were loaded");
-        }
-    } catch (error) {
-        console.error("Error loading projects:", error);
-    }
-};
-
+  
   const [crudCounter, setCrudCounter] = useState(0);
  
   const countCrudStatus = () =>{
@@ -73,7 +58,7 @@ function App() {
     <div className="App">
         {}
           <BrowserRouter>
-         <ProjectsNavBar sessionKey={Cookies.get('session')} updatedStatus={crudCounter} projects={projects}/>
+         <ProjectsNavBar sessionKey={Cookies.get('session')} updatedStatus={crudCounter}/>
           <Routes>
             <Route path='/' element={<Home/>}/>
             <Route path='/projects/:id' element={<MainBoard sessionKey={Cookies.get('session')} currentProjectId={selectedProjectId.value} onUpdate={() => countCrudStatus()}/>} />
