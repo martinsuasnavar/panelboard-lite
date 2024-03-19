@@ -29,6 +29,17 @@ $mobile-width: 600px;
     }
 }
 
+@media (max-width: $mobile-width)  {
+    #footer{
+        justify-content: right;
+        width:100%;
+        .config-section{
+            margin-right: 110px;
+        }
+        
+    }
+}
+
 /////////////
 // classes //
 /////////////
