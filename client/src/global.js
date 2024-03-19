@@ -30,6 +30,7 @@ export { currentProjectName };
 
 //get data arrays, unnecessary?
 var projectArray = [];
+/*
 const dataReferences = ['sessions', 'projects', 'panels', 'notes'];
 var DATA_ARRAYS = [];
 const getAllDataTypes = async () => {
@@ -43,3 +44,4 @@ const getAllDataTypes = async () => {
 getAllDataTypes();
 export { DATA_ARRAYS };
 export { projectArray };
+*/
