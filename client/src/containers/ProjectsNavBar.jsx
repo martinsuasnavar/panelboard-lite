@@ -25,11 +25,6 @@ const ProjectsNavBar = ({sessionKey, updatedStatus}) =>{
     // We are using useEffect to connect to an external system outside of the React front-end, in this case our back-end
     useEffect(() => {
         fetchProjects();
-    }, []);
-
-
-    useEffect(() => {
-        fetchProjects();
     }, [id, updatedStatus]);
 
    const createProject = async (e) => {
