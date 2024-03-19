@@ -34,6 +34,7 @@ const ProjectsNavBar = ({sessionKey, updatedStatus}) =>{
     };
 
     const fetchProjects = async () =>{
+        console.log("Fetching projects in ProjectsNavBar.jsx...");
         const data = await callApi(`${backendDomain}/sessions/${sessionKey}/projects`, 'GET');
         setProjects(data);
     }
