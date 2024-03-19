@@ -305,158 +305,161 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
             {/**************/}
             {/* MAIN BOARD */}
             {/**************/}
-            {loading &&
+            {loading ? (
                 <DialogBox headMessage={"Loading, please wait... "}></DialogBox>
-            }
-            {!validProject && !loading ? (
-                <div>
-                    <DialogBox headMessage={"ERROR 401 - The permission to load up this project was not reached out. Please try again later. "}>
-                    <EditButton width={120} height={30} 
-                                onClick={() => window.location.reload(false)}>
-                                  Refresh page
-                    </EditButton>
-                    </DialogBox>
-           
-                </div>
             ):(
                 <div>
-                    {/**************/}
-                    {/* DIALOG BOX */}
-                    {/**************/}
-                    
+                {!validProject ? (
+                    <div>
+                        <DialogBox headMessage={"ERROR 401 - The permission to load up this project was not reached out. Please try again later. "}>
+                        <EditButton width={120} height={30} 
+                                    onClick={() => window.location.reload(false)}>
+                                    Refresh page
+                        </EditButton>
+                        </DialogBox>
+            
+                    </div>
+                ):(
+                    <div>
+                        {/**************/}
+                        {/* DIALOG BOX */}
+                        {/**************/}
+                        
 
-                    {/* dialog box conditional, in use if a project is about to be deleted */}
-                    {saveBox &&
-                        <div>
-                            <DialogBox headMessage={"Either save this project or open a new one. WARNING: Opening a new project overrides this one."}>
-                                
-                                <DeleteButton width={70} height={30} 
-                                onClick={() => toggleSaveProjectWarning()}>
-                                    Cancel
-                                </DeleteButton>
-
-
-                                <EditButton width={70} height={30} 
-                                onClick={() => handleOpenFileClick()}>
-                                    Open
-                                </EditButton>
-
-                                <EditButton width={70} height={30} 
-                                onClick={() => handleSaveFile()}>
-                                    Save
-                                </EditButton>
-
-                            </DialogBox>
-                        </div>
-                    }
-
-
-                    {dialogBox &&
-                        <div>
-                            <DialogBox headMessage={"Are you sure you want to delete this project?"}>
-
-                                <DeleteButton width={40} height={30} 
-                                onClick={() => deleteProject()}>
-                                    Yes
-                                </DeleteButton>
-
-                                <EditButton width={40} height={30} 
-                                onClick={() => toggleDeleteProjectWarning()}>
-                                    No
-                                </EditButton>
-
-                            </DialogBox>
-                        </div>
-                    }
-
-
-                    {/*********/}
-                    {/* BOARD */}
-                    {/*********/}
-
-
-                    <WhiteSpace height={50}/>
-
-                    <section className="project-name-section">
-                        <div className="project-name-elements">
-                            <div style={{cursor: 'pointer'}} className="big-title-text" onDoubleClick={toggleProjectName}>
-                                { isEditingProjectName ? (
-                                    <div style={{display: "flex"}} onKeyDown={getKeyDown} >
-                                    <EditButton width={30} height={30} onClick={() => updateProjectName()}> ✓</EditButton>
-                                        <WhiteSpace width={10}/>
-                                        <textarea className="project-name-change"
-                                            spellcheck="false" 
-                                            maxLength={20}
-                                            value={editedProjectNameValue}
-                                            onChange={(e) => setEditedProjectNameValue(e.target.value)}
-                                            required
-                                        />
+                        {/* dialog box conditional, in use if a project is about to be deleted */}
+                        {saveBox &&
+                            <div>
+                                <DialogBox headMessage={"Either save this project or open a new one. WARNING: Opening a new project overrides this one."}>
                                     
-                                    </div>
-                                ):(
-                                    <div>{currentProjectName.value}</div>
-                                )}
+                                    <DeleteButton width={70} height={30} 
+                                    onClick={() => toggleSaveProjectWarning()}>
+                                        Cancel
+                                    </DeleteButton>
+
+
+                                    <EditButton width={70} height={30} 
+                                    onClick={() => handleOpenFileClick()}>
+                                        Open
+                                    </EditButton>
+
+                                    <EditButton width={70} height={30} 
+                                    onClick={() => handleSaveFile()}>
+                                        Save
+                                    </EditButton>
+
+                                </DialogBox>
                             </div>
-                        </div>
-                    </section>
+                        }
 
-                    <DndContext onDragEnd={handleDragEnd}>
-                        <div className="panels-container">
-                            {panels.map((panel, panelIndex) => (
-                                <div key={panelIndex}>
-                            
-                                    <Panel
-                                        panelId={panel.panel_id}
-                                        panelTitle={panel.panel_name}
-                                        projectId={id}
-                                        onClick={() => panelCreatesNote(panel.panel_id)}
-                                    >
-                                        {notes[panel.panel_id]?.map((note, noteIndex) => (
-                                            <div key={noteIndex}>
-                                                <Note id={panel} noteId={note.note_id} projectId={id} onUpdate={projectFetchsPanels}>
-                                                    {note.content}
-                                                </Note>
-                                            </div>
-                                        ))}
-                                    </Panel>
-                            
+
+                        {dialogBox &&
+                            <div>
+                                <DialogBox headMessage={"Are you sure you want to delete this project?"}>
+
+                                    <DeleteButton width={40} height={30} 
+                                    onClick={() => deleteProject()}>
+                                        Yes
+                                    </DeleteButton>
+
+                                    <EditButton width={40} height={30} 
+                                    onClick={() => toggleDeleteProjectWarning()}>
+                                        No
+                                    </EditButton>
+
+                                </DialogBox>
+                            </div>
+                        }
+
+
+                        {/*********/}
+                        {/* BOARD */}
+                        {/*********/}
+
+
+                        <WhiteSpace height={50}/>
+
+                        <section className="project-name-section">
+                            <div className="project-name-elements">
+                                <div style={{cursor: 'pointer'}} className="big-title-text" onDoubleClick={toggleProjectName}>
+                                    { isEditingProjectName ? (
+                                        <div style={{display: "flex"}} onKeyDown={getKeyDown} >
+                                        <EditButton width={30} height={30} onClick={() => updateProjectName()}> ✓</EditButton>
+                                            <WhiteSpace width={10}/>
+                                            <textarea className="project-name-change"
+                                                spellcheck="false" 
+                                                maxLength={20}
+                                                value={editedProjectNameValue}
+                                                onChange={(e) => setEditedProjectNameValue(e.target.value)}
+                                                required
+                                            />
+                                        
+                                        </div>
+                                    ):(
+                                        <div>{currentProjectName.value}</div>
+                                    )}
                                 </div>
-                            ))}
-                        </div>
-                    </DndContext>
-
-
-                    {/**********/}
-                    {/* FOOTER */}
-                    {/**********/}
-
-
-                    <footer id="footer">
-                        <section className="config-section">
-                    
-                                <EditButton height={50} width={50}
-                                onClick={() => toggleSaveProjectWarning()}>
-                                    <Image src="/images/save-icon.png" height={20}/>
-                                </EditButton>
-                                <WhiteSpace height={10}/>
-                                <DeleteButton height={50} width={50}
-                                onClick={() => toggleDeleteProjectWarning()}>
-                                    <Image src="/images/trash-icon.png" height={20}/>
-                                </DeleteButton>
-                            
+                            </div>
                         </section>
-                    </footer>
 
-                    {/* Hidden file input */}
-                    <input
-                        id="file-input"
-                        type="file"
-                        accept=".txt"
-                        style={{ display: 'none' }}
-                        onChange={handleOpenFile}
-                    />
-            </div>
-        )}
+                        <DndContext onDragEnd={handleDragEnd}>
+                            <div className="panels-container">
+                                {panels.map((panel, panelIndex) => (
+                                    <div key={panelIndex}>
+                                
+                                        <Panel
+                                            panelId={panel.panel_id}
+                                            panelTitle={panel.panel_name}
+                                            projectId={id}
+                                            onClick={() => panelCreatesNote(panel.panel_id)}
+                                        >
+                                            {notes[panel.panel_id]?.map((note, noteIndex) => (
+                                                <div key={noteIndex}>
+                                                    <Note id={panel} noteId={note.note_id} projectId={id} onUpdate={projectFetchsPanels}>
+                                                        {note.content}
+                                                    </Note>
+                                                </div>
+                                            ))}
+                                        </Panel>
+                                
+                                    </div>
+                                ))}
+                            </div>
+                        </DndContext>
+
+
+                        {/**********/}
+                        {/* FOOTER */}
+                        {/**********/}
+
+
+                        <footer id="footer">
+                            <section className="config-section">
+                        
+                                    <EditButton height={50} width={50}
+                                    onClick={() => toggleSaveProjectWarning()}>
+                                        <Image src="/images/save-icon.png" height={20}/>
+                                    </EditButton>
+                                    <WhiteSpace height={10}/>
+                                    <DeleteButton height={50} width={50}
+                                    onClick={() => toggleDeleteProjectWarning()}>
+                                        <Image src="/images/trash-icon.png" height={20}/>
+                                    </DeleteButton>
+                                
+                            </section>
+                        </footer>
+
+                        {/* Hidden file input */}
+                        <input
+                            id="file-input"
+                            type="file"
+                            accept=".txt"
+                            style={{ display: 'none' }}
+                            onChange={handleOpenFile}
+                        />
+                    </div>
+                )}
+                </div>
+            )} 
         </div>
     );
 }
