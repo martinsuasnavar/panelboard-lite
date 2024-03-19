@@ -59,7 +59,6 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
                 console.log('This session is allowed to access this project');
                 setValidProjectBool(true);
                 projectFetchsPanels();
-                setLoading(false);
             } else if (response.status === 401) {
                 console.log('Error ' + response.status + '. Unauthorized access for this session.');
                 setLoading(false);
@@ -203,6 +202,7 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
             ...prevNotes,
             [panelId]: data                
         }));
+        setLoading(false);
     };
 
     
