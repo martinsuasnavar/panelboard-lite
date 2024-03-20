@@ -11,10 +11,11 @@ $font-size: 0.8rem;
      text-align: left;
      width: 200px;
      height: 14px;
-     background-color: rgba(254, 117, 117, 0.3);
+     background-color: $second-panel-color;
      border-radius: 10px;
      margin: 10px;
      font-size: $font-size;
+     color: $second-text-color;
      
      cursor: pointer;
      textarea{

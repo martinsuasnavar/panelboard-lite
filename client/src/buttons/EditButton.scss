@@ -1,7 +1,8 @@
-$button-color: rgb(20, 195, 87);
+$button-color: rgb(20, 183, 195);
 
 .edit-button{
     background-color: $button-color;
+    border-radius: 10px;
     color: white;
     font-weight: 500;
     position: relative;

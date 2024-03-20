@@ -11,8 +11,13 @@ import { callApi } from './supports/Fetch/Fetch';
 
 function App() {
 
+  const [theme, setTheme] = useState('dark'); // Default to light theme
   const [crudCounter, setCrudCounter] = useState(0);
  
+  const toggleTheme = () => {
+    setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
+
   const countCrudStatus = () =>{
     setCrudCounter(crudCounter + 1);
   }
@@ -56,16 +61,16 @@ function App() {
   console.log("Verifying if React can get the session Cookie...")
   console.log(Cookies.get('session'))
   return (
-    <div className="App">
-        {}
+    <div className={`App-${theme}`}>
+        <div className={`theme-${theme}`}>
           <BrowserRouter>
          <ProjectsNavBar sessionKey={Cookies.get('session')} updatedStatus={crudCounter}/>
           <Routes>
             <Route path='/' element={<Home/>}/>
-            <Route path='/projects/:id' element={<MainBoard sessionKey={Cookies.get('session')} currentProjectId={selectedProjectId.value} onUpdate={() => countCrudStatus()}/>} />
+            <Route path='/projects/:id' element={<MainBoard onThemeUpdate={setTheme} sessionKey={Cookies.get('session')} currentProjectId={selectedProjectId.value} onUpdate={() => countCrudStatus()}/>} />
           </Routes>
         </BrowserRouter>
-
+        </div>
     </div>
   );
 }

@@ -26,17 +26,18 @@ const ProjectsNavBar = ({sessionKey, updatedStatus}) =>{
     useEffect(() => {
         fetchProjects();
     }, [id, updatedStatus]);
+    
 
    const createProject = async (e) => {
         await callApi(`${backendDomain}/create-project`, 'POST', {name: `Project ${projects.length + 1}`, associated_session_key: sessionKey})
         fetchProjects();
-       
     };
 
     const fetchProjects = async () =>{
         console.log("Fetching projects in ProjectsNavBar.jsx...");
         const data = await callApi(`${backendDomain}/sessions/${sessionKey}/projects`, 'GET');
         setProjects(data);
+        console.log(projects);
     }
     
     //console.log(projects)
@@ -98,13 +99,13 @@ const ProjectsNavBar = ({sessionKey, updatedStatus}) =>{
 
     return(
         <ul className="navbar" >
-            <div style={{display: 'flex'}}>
+            <div style={{display: 'flex', marginTop: '20px'}}>
                 <AddButton onClick={createProject} squareSize={27}></AddButton>
         
                 <div className="nav-buttons">
                     {projects.map((aProject, index) =>(
                         <ul  key={index}>
-                            <li><ProjectButton selected={aProject.project_id == project} onClick={() => navigateToProject(aProject.project_id, index, aProject.project_name)}>
+                            <li ><ProjectButton style={{padding: '20px'}} selected={aProject.project_id == project} onClick={() => navigateToProject(aProject.project_id, index, aProject.project_name)}>
                                 {aProject.project_name}
                             </ProjectButton></li>
                         </ul>

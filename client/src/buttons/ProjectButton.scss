@@ -1,12 +1,17 @@
-$hover-color: darken($color: white, $amount: 10);
-$active-color:  darken($color: white, $amount: 40);
+@import "../global.scss";
+
+$my-color: rgb(180, 180, 180);
+
+:root{
+    --my-color: $my-color;
+}
 
 .project-button{
-    color: black;
-    background-color: white;
-    padding: 2px;
+    color: $second-text-color;
+    background-color: $second-panel-color;
+    padding: 5px;
     border-radius: 10px;
-    border-color: white;
+    border-color: $second-panel-color;
     border-style: solid;
     border-width: 1.5px;
     height: 20px;
@@ -30,11 +35,9 @@ $active-color:  darken($color: white, $amount: 40);
 }
 
 .project-button:hover{
-    background-color: $hover-color;
-    border-color: $hover-color;
+    filter: brightness(140%);
 }
 
 .project-button:active{
-    background-color: $active-color;
-    border-color: $active-color;
+    filter: brightness(85%);
 }

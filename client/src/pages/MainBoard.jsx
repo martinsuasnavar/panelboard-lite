@@ -22,7 +22,7 @@ import {DndContext} from '@dnd-kit/core';
 import AddButton from "../buttons/AddButton";
 
 
-const MainBoard = ({sessionKey, onUpdate}) =>{
+const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
     const navigate = useNavigate();
     const { id } = useParams();
     const [dialogBox, setDialogBox] = useState();
@@ -295,7 +295,11 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
         URL.revokeObjectURL(link.href);
     };
 
-    
+    const toggleTheme = () => {
+        // Call the onThemeUpdate function passed from the parent component
+        onThemeUpdate(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
+    };
+
     ////////////
     // RENDER //
     ////////////
@@ -432,9 +436,13 @@ const MainBoard = ({sessionKey, onUpdate}) =>{
                         {/**********/}
 
 
-                        <footer id="footer">
+                        <footer className="footer">
                             <section className="config-section">
-                        
+                                    <EditButton height={50} width={50}
+                                    onClick={toggleTheme}>
+                                        ☀️
+                                    </EditButton>
+                                    <WhiteSpace height={10}/>
                                     <EditButton height={50} width={50}
                                     onClick={() => toggleSaveProjectWarning()}>
                                         <Image src="/images/save-icon.png" height={20}/>

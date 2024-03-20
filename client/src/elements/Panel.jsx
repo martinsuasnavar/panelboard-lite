@@ -25,7 +25,7 @@ const Panel = ({ height, projectId, panelId, panelTitle, children, onClick }) =>
 
     const style = {
       borderStyle: 'solid',
-      borderColor: isOver ? 'greenyellow' : 'white',
+      borderColor: isOver ? 'rgba(0, 119, 255, 0.2)' : 'rgba(0, 119, 255, 0.1)',
     };
 
     return (

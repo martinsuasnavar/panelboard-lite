@@ -1,13 +1,16 @@
 @import '../global.scss';
 
 .navbar{
+    
     position: fixed;
     width: 100%;
-    background-color: black;
+    height: 70px;
+    background-color: $panel-color;
     margin: 0px;
     z-index: 2;
     li{
         margin: 0px;
+        list-style-type: none;
     }
 }
 

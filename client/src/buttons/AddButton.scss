@@ -1,9 +1,11 @@
 $square-size: 20px;
-$button-color: greenyellow;
+$button-color: rgb(47, 255, 168);
 
 .add-button{
     background-color: $button-color;
     font-weight: 500;
+    border-radius: 7px;
+    color: green;
     cursor: pointer;
     /*non selection text*/
     -webkit-touch-callout: none; /* iOS Safari */
@@ -22,11 +24,12 @@ $button-color: greenyellow;
 
 
 
+
 .add-button:hover{
     background-color: lighten($color: $button-color, $amount: 20)
 }
 
 .add-button:active{
-    background-color: black;
+    background-color: rgb(21, 255, 0);
     color: $button-color;
 }

@@ -6,8 +6,8 @@ const ProjectButton = ({selected, onClick, children}) =>{
     if (selected){
         divStyle={
             color: 'black',
-            backgroundColor: 'greenyellow',
-            borderColor: 'greenyellow'
+            backgroundColor: 'rgb(47, 255, 168)',
+            borderColor: 'rgb(47, 255, 168)'
         };
     }
 
