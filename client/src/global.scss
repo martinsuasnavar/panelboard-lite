@@ -108,10 +108,12 @@ html, body {
 
 @media (max-width: $mobile-width)  {
     .footer{
+        display: sticky;
         justify-content: right;
         width:100%;
         .config-section{
-            margin-right: 110px;
+            margin-right: 90px;
+            margin-top: 2px;
         }
         
     }
