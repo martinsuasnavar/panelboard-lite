@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 
 const Home = () => {
     const [logoSize, setLogoSize] = useState(140);
-    const [logoMotto, setLogoMotto] = useState("Fast. Simple. Effective.");
+    const [logoMotto, setLogoMotto] = useState("Simple and Effective.");
     
     useEffect(() => {
         const mediaQuery = window.matchMedia('(max-width: 600px)');
@@ -30,8 +30,8 @@ const Home = () => {
     }, []); // Empty dependency array ensures this effect runs only once
 
     return (
-        <main className="home" style={{ display: "flex", justifyContent: "center", marginRight: "auto" }}>
-            <div style={{ marginTop: "90px" }}>
+        <main className="home">
+            <div className="home-elements">
                 <Image src="/images/logo.png" height={logoSize}></Image>
                 <WhiteSpace height={100}/>
                 <div className="big-title-text">{logoMotto}</div>

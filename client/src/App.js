@@ -11,9 +11,8 @@ import { callApi } from './supports/Fetch/Fetch';
 import EditButton from './buttons/EditButton';
 
 function App() {
-
   const [theme, setTheme] = useState('dark'); // Default to light theme
-  const [crudCounter, setCrudCounter] = useState(0);
+  const [crudCounter, setCrudCounter] = useState(0); // Each time a component changes something, it has to tell it to the App component from counting each crud operation
  
   const toggleTheme = () => {
     setTheme(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
@@ -73,7 +72,7 @@ function App() {
             </Routes>
           </BrowserRouter>
          <EditButton/>
-          </div>
+        </div>
       </div>
     </body>
    

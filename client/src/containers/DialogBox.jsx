@@ -1,7 +1,7 @@
 import './DialogBox.scss';
 const DialogBox = ({headMessage, children}) =>{
     const iconStyle = {
-        color: 'red'
+        color: 'rgb(248, 105, 69)'
     };
 
  return(

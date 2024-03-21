@@ -10,7 +10,9 @@
     overflow: auto; /* Enable scroll if needed */
     background-color: rgb(0,0,0); /* Fallback color */
     background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    color: white;
+    
+
+
     p{
         display:  flex;
     }
@@ -20,15 +22,23 @@
     }
 
     .dialog-box-content {
+        color: $text-color;
+        font-size: 0.9rem;
         border-radius: 10px;
-        background-color: $panel-color;
+        background-color: $solid-color;
         margin: 15% auto; /* 15% from the top and centered */
         padding: 20px;
-        border: 1px solid #888;
+        border: 1px solid $panel-color;
         width: 40%; /* Could be more or less, depending on screen size */
-        height: 20%;
+       
         justify-content: center;
         text-align: center;
+        z-index: 1;
+        @media (max-width: $mobile-width){
+            margin-left: 90px;
+            margin-top: 140px;
+            width: 65%;
+        }
     }
 }
 
