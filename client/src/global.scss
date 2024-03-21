@@ -139,7 +139,10 @@ html, body {
 
 
 .project-name-section{
-    margin-top: 50px;
+    margin-top: 30px;
+    @media (max-width: $mobile-width)  {
+        margin-top: -30px;
+    }
     margin-left: 30px;
     display: flex;
     color: $text-color;
