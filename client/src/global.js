@@ -1,7 +1,11 @@
 
 
 //BACKEND_DOMAIN_API
-const localHost = false;
+let localHost = false;
+if (window.location.href.indexOf("localhost") > -1) {
+    localHost = true;
+}
+
 const localPort = 5000;
 
 let backendDomain = `https://panelboard-lite-api.vercel.app/api`;
