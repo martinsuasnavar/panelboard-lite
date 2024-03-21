@@ -194,7 +194,11 @@ body {
     font-family: Tahoma, Verdana, Segoe, sans-serif; font-style: normal; font-variant: normal; line-height: 26.4px;
 
 }
-  
+@media (max-width: $mobile-width)  {
+    body{
+        overflow-x: hidden;
+    }
+}
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
