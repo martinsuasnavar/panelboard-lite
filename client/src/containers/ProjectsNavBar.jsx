@@ -100,9 +100,11 @@ const ProjectsNavBar = ({sessionKey, updatedStatus}) =>{
     return(
         <ul className="navbar" >
             <div style={{display: 'flex', marginTop: '20px'}}>
-                <AddButton onClick={createProject} squareSize={27}></AddButton>
-        
+                
                 <div className="nav-buttons">
+                <div>
+                    <AddButton onClick={createProject} squareSize={27}></AddButton>
+                </div>
                     {projects.map((aProject, index) =>(
                         <ul  key={index}>
                             <li ><ProjectButton style={{padding: '20px'}} selected={aProject.project_id == project} onClick={() => navigateToProject(aProject.project_id, index, aProject.project_name)}>

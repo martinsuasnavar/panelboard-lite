@@ -53,10 +53,13 @@ $mobile-width: 600px;
     background-size: cover;
     background-position: center top;
 }
-
-
-
-
+@media (prefers-color-scheme: light) {
+    .theme-b.adaptive {
+      background: #bcd;
+      color: #334;
+      outline: 5px dotted #000;
+    }
+  }
  .App-dark{
     text-align: center;
     --background: url("../public/images/main-background-dark.png") no-repeat center center fixed;

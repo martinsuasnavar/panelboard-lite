@@ -34,6 +34,17 @@ $my-color: rgb(180, 180, 180);
     }
 }
 
+@media (max-width: $mobile-width) {
+    .project-button{
+        height: 17px;
+        margin-left: 30px;
+        width: 50px;
+        padding: 0px;
+        font-size: 0.4rem;
+        white-space: nowrap;
+    }
+}
+
 .project-button:hover{
     filter: brightness(140%);
 }
