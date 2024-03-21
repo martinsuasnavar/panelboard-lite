@@ -13,7 +13,7 @@ $global-font: 'Tahoma, Verdana, Segoe, sans-serif; font-style: normal; font-vari
 $mobile-width: 600px;
 
 
-  
+
 
 
 
@@ -24,7 +24,7 @@ $mobile-width: 600px;
         --second-panel-color: rgba(255, 255, 255, 0.514);
         --text-color: black;
         --second-text-color: black;
-        --background: url("../public/images/main-background-light.png") no-repeat center center fixed;
+      
       }
       
       .theme-dark {
@@ -32,27 +32,19 @@ $mobile-width: 600px;
         --second-panel-color: rgba(80, 98, 124, 0.514);
         --text-color: white;
         --second-text-color: white;
-        --background: url("../public/images/main-background-dark.png") no-repeat center center fixed;
       }
       
       :root {
-        --background: var(--background-light); /* Default to light mode */
         --panel-color: rgba(255, 255, 255, 0.404);
         --second-panel-color: rgba(255, 255, 255, 0.514);
         --text-color: black;
         --second-text-color: black;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background: var(--background) no-repeat center center fixed;
       }
 } 
 
-.App-light {
+.App-light{
     text-align: center;
-    background: url("../public/images/main-background-light.png") no-repeat center center fixed;
+    --background: url("../public/images/main-background-light.png") no-repeat center center fixed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-background-size: cover;
@@ -60,41 +52,22 @@ $mobile-width: 600px;
     -o-background-size: cover;
     background-size: cover;
     background-position: center top;
-            
-    height: 100vh;
-  width: 100vw;
 }
 
-.App-dark {
+
+
+
+ .App-dark{
     text-align: center;
-    background: url("../public/images/main-background-dark.png") no-repeat center center fixed;
+    --background: url("../public/images/main-background-dark.png") no-repeat center center fixed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
-    background-position: center top;
-            
-    height: 100vh;
-  width: 100vw;
 }
 
-    .theme-light{
-        --panel-color: rgba(255, 255, 255, 0.404);
-        --second-panel-color: rgba(255, 255, 255, 0.514);
-        --text-color: black;
-        --second-text-color: black;
-
-    }
-    
-    .theme-dark{
-        --panel-color: rgba(0, 0, 0, 0.404);
-        --second-panel-color: rgba(80, 98, 124, 0.514);
-        --text-color: white;
-        --second-text-color: white;
-      
-    }
 
 
 $panel-color: var(--panel-color);
@@ -103,6 +76,12 @@ $text-color: var(--text-color);
 $second-text-color: var(--second-text-color);
 $background: var(--background);
 
+
+html, body {
+    height: 100vh;
+    width: 100vw;
+    background:var(--background);
+}
 /////////////////
 // identifiers //
 /////////////////
@@ -204,6 +183,10 @@ $background: var(--background);
 
 
 body {
+    background-color: black;
+    overflow-y:auto;
+    position: fixed;
+    bottom: 0;
     margin: 0;
     font-family: Tahoma, Verdana, Segoe, sans-serif; font-style: normal; font-variant: normal; line-height: 26.4px;
 

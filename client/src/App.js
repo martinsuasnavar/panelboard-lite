@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react';
 import Cookies from 'js-cookie'; // Import js-cookie
 import { backendDomain } from './global';
 import { callApi } from './supports/Fetch/Fetch';
+import EditButton from './buttons/EditButton';
 
 function App() {
 
@@ -61,17 +62,21 @@ function App() {
   console.log("Verifying if React can get the session Cookie...")
   console.log(Cookies.get('session'))
   return (
-    <div className={`App-${theme}`}>
-        <div className={`theme-${theme}`}>
-          <BrowserRouter>
-         <ProjectsNavBar sessionKey={Cookies.get('session')} updatedStatus={crudCounter}/>
-          <Routes>
-            <Route path='/' element={<Home/>}/>
-            <Route path='/projects/:id' element={<MainBoard onThemeUpdate={setTheme} sessionKey={Cookies.get('session')} currentProjectId={selectedProjectId.value} onUpdate={() => countCrudStatus()}/>} />
-          </Routes>
-        </BrowserRouter>
-        </div>
-    </div>
+    <body className={`App-${theme}`}>
+      <div className="main-container">
+          <div className={`theme-${theme}`}>
+           <BrowserRouter>
+          <ProjectsNavBar sessionKey={Cookies.get('session')} updatedStatus={crudCounter}/>
+            <Routes>
+              <Route path='/' element={<Home/>}/>
+              <Route path='/projects/:id' element={<MainBoard onThemeUpdate={setTheme} sessionKey={Cookies.get('session')} currentProjectId={selectedProjectId.value} onUpdate={() => countCrudStatus()}/>} />
+            </Routes>
+          </BrowserRouter>
+         <EditButton/>
+          </div>
+      </div>
+    </body>
+   
   );
 }
 

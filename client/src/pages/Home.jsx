@@ -6,7 +6,7 @@ import WhiteSpace from "../supports/WhiteSpace/WhiteSpace";
 const Home = () =>{
     return(
         <main className="home" style={{display: "flex", justifyContent: "center", marginRight: "auto"}}>
-            <div style={{marginTop: "270px"}}>
+            <div style={{marginTop: "400px"}}>
             
                 <Image src="/images/logo.png" height={140}></Image>
                 <WhiteSpace height={170}/>
