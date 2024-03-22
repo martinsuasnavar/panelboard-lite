@@ -339,16 +339,16 @@ const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
                             <div>
                                 <DialogBox headMessage={"Open a new project or save this one. WARNING: opening a new project overrides the one you've selected."}>
                                     
-                                    <DeleteButton width={70} height={30} 
+                                    <EditButton width={70} height={30} 
                                     onClick={() => toggleSaveProjectWarning()}>
                                         Cancel
-                                    </DeleteButton>
+                                    </EditButton>
 
 
-                                    <EditButton width={70} height={30} 
+                                    <DeleteButton width={70} height={30} 
                                     onClick={() => handleOpenFileClick()}>
                                         Open
-                                    </EditButton>
+                                    </DeleteButton>
 
                                     <EditButton width={70} height={30} 
                                     onClick={() => handleSaveFile()}>
