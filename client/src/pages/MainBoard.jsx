@@ -337,7 +337,7 @@ const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
                         {/* dialog box conditional, in use if a project is about to be deleted */}
                         {saveBox &&
                             <div>
-                                <DialogBox headMessage={"Open a new project or save this one. WANING: opening a new project overrides the one you've selected."}>
+                                <DialogBox headMessage={"Open a new project or save this one. WARNING: opening a new project overrides the one you've selected."}>
                                     
                                     <DeleteButton width={70} height={30} 
                                     onClick={() => toggleSaveProjectWarning()}>
