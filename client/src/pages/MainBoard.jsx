@@ -314,7 +314,7 @@ const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
             {/* MAIN BOARD */}
             {/**************/}
             {loading ? (
-                <DialogBox headMessage={"Loading, please wait... "}></DialogBox>
+                <DialogBox headMessage={"Loading, please wait... "} iconType={"info"}></DialogBox>
             ):(
                 <div>
                 {!validProject ? (

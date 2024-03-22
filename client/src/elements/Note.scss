@@ -19,6 +19,7 @@ $font-size: 0.8rem;
      
      cursor: pointer;
      textarea{
+      color: $text-color;
       width: 100%;
       white-space: nowrap;
       font-family: Tahoma, Verdana, Segoe, sans-serif; font-style: normal; font-variant: normal;
@@ -48,5 +49,12 @@ $font-size: 0.8rem;
 
  .note-buttons{
     display: flex;
+    @media (max-width: $mobile-width)  {
+      margin-top: 4px;
+      border-radius: 4px;
+      height: 30px;
+      padding: 7px;
+      background-color: $panel-color;
+  }
  }
  
