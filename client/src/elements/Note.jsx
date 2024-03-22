@@ -1,7 +1,7 @@
 // Note.js
 import "./Note.scss";
-import React, { useState } from "react";
-import { backendDomain } from "../global";
+import React, { useEffect, useState } from "react";
+import { backendDomain, editingNoteId } from "../global";
 
 import Image from "../supports/Image/Image";
 import WhiteSpace from "../supports/WhiteSpace/WhiteSpace";
@@ -16,7 +16,7 @@ import { CSS } from "@dnd-kit/utilities";
 import { updateAny } from "../supports/Fetch/Fetch";
 import { callApi } from "../supports/Fetch/Fetch";
 
-const Note = ({ noteId, projectId, containerId, children, onUpdate, onGreenClick, onRedClick, noteCrudCounter }) => {
+const Note = ({ noteId, projectId, containerId, children, onUpdate, onGreenClick, onRedClick, noteCrudCounter, canEdit }) => {
   const [isEditing, setEditing] = useState(false);
   const [editedContent, setEditedContent] = useState(children);
   //console.log("Note id: " + noteId);
@@ -30,9 +30,25 @@ const Note = ({ noteId, projectId, containerId, children, onUpdate, onGreenClick
     transform: CSS.Translate.toString(transform)
   };
 
+
   const toggleEditing = () => {
     setEditing(!isEditing);
+    editingNoteId.value = noteId;
+    console.log(editingNoteId.value);
+    stopEditing();
   };
+
+  useEffect(() => {
+    stopEditing();
+  }, [editingNoteId.value]);
+
+  const stopEditing = () => {
+    if (noteId != editingNoteId.value){
+      setEditedContent(children);
+      setEditing(false);
+    }
+  }
+ 
 
   const getKeyDown = (e) => {
     // If a key is pressed without the Shift key, update the note

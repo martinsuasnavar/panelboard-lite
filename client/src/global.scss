@@ -24,7 +24,7 @@ $mobile-width: 600px;
         --second-panel-color: rgba(255, 255, 255, 0.514);
         --text-color: black;
         --second-text-color: black;
-        --solid-color: white;
+        --solid-color: rgba(255, 255, 255, 0.973);
       }
       
       .theme-dark {
@@ -32,7 +32,7 @@ $mobile-width: 600px;
         --second-panel-color: rgba(80, 98, 124, 0.514);
         --text-color: white;
         --second-text-color: white;
-        --solid-color: black;
+        --solid-color: rgba(0, 0, 0, 0.932);
       }
       
       :root {

@@ -42,6 +42,10 @@ $font-size: 0.8rem;
                                     supported by Chrome, Edge, Opera and Firefox */
  }
 
+ .note:hover{
+   filter: brightness(110%);
+}
+
  .note-edit-zone{
     
     display: flex;

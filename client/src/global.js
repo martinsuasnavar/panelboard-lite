@@ -30,6 +30,11 @@ export { currentProjectName };
 
 
 
+//CURRENT_EDITED_NOTE_ID
+let editingNoteId = { value: 0 }
+export { editingNoteId };
+
+
 //get data arrays, unnecessary?
 var projectArray = [];
 /*

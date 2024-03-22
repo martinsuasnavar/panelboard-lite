@@ -1,7 +1,7 @@
 import "./Panel.scss";
 import { useEffect, useState } from "react";
 //import { useParams } from "react-router-dom";
-import { backendDomain } from "../global";
+import { editingNoteId } from "../global";
 
 import WhiteSpace from "../supports/WhiteSpace/WhiteSpace";
 //import Note from "./Note";
@@ -15,6 +15,7 @@ const Panel = ({ height, projectId, panelId, panelTitle, children, onClick }) =>
         id: panelId,
         index: panelId,
     });
+
 
     const handleDrop = async () => {
       if (isOver) {
