@@ -3,7 +3,7 @@ import "../global.scss";
 import React from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { DATA_ARRAYS, backendDomain, currentProjectName } from "../global";
+import { DATA_ARRAYS, backendDomain, currentProjectName, selectedProjectId } from "../global";
 
 import Panel from "../elements/Panel";
 import Note from "../elements/Note";
@@ -59,6 +59,8 @@ const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
             if (response.status === 200) {
                 console.log('This session is allowed to access this project');
                 setValidProjectBool(true);
+                selectedProjectId.value = id;
+                console.log(selectedProjectId.value);
                 projectFetchsPanels();
             } else if (response.status === 401) {
                 console.log('Error ' + response.status + '. Unauthorized access for this session.');
@@ -303,6 +305,13 @@ const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
         onThemeUpdate(prevTheme => (prevTheme === 'light' ? 'dark' : 'light'));
         setDark(!isDark);
     };
+
+
+
+    useEffect(() =>{
+      
+    },[]);
+
 
     ////////////
     // RENDER //

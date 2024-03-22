@@ -25,7 +25,8 @@ const ProjectsNavBar = ({sessionKey, updatedStatus}) =>{
     // We are using useEffect to connect to an external system outside of the React front-end, in this case our back-end
     useEffect(() => {
         fetchProjects();
-    }, [id, updatedStatus]);
+        setSelectedProject(selectedProjectId.value);
+    }, [id, updatedStatus, selectedProjectId.value]);
     
 
    const createProject = async (e) => {
@@ -48,7 +49,7 @@ const ProjectsNavBar = ({sessionKey, updatedStatus}) =>{
         
         setSelectedProject(projectId);
         navigate(`/projects/${projectId}`);
-        //selectedProjectId.value = projectId;
+        selectedProjectId.value = projectId;
         currentProjectIndex = index;
         currentProjectName.value = projectName;
     } 
