@@ -40,7 +40,7 @@ const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
     const [editedProjectNameValue, setEditedProjectNameValue] = useState(currentProjectName.name);
 
     //console.log('The session key passed to MainBoard.jsx is ' + sessionKey);
-
+    //
     const handleOpenFileClick = () => {
         const fileInput = document.getElementById("file-input");
         fileInput.click();
