@@ -74,7 +74,13 @@ const Note = ({ noteId, projectId, containerId, children, onUpdate, onGreenClick
   //
 
   const updateNote = async () => {
-    await updateAny(`${backendDomain}/update-note/${noteId}`, { content: editedContent });
+    let actualEditedContent = " ";
+    if (editedContent == ""){
+      actualEditedContent = "My project"
+    }else{
+      actualEditedContent = editedContent;
+    }
+    await updateAny(`${backendDomain}/update-note/${noteId}`, { content: actualEditedContent });
     setEditing(false);
     onUpdate();
 };
