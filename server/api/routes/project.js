@@ -19,35 +19,42 @@ router.get('/authenticate-project', async (req, res) => {
     const sessionParam = req.query.session;
     const projectParam = parseInt(req.query.project, 10);
 
-    try {
-        const project = await db.getAll('project', { project_id: projectParam });
-        console.log(project)
-        // authenticate if the current project belongs to the questioned session
+    const database = await db.checkDatabaseConnection();
+    if (database){
         try {
-            const session = await db.getAll('session', { session_key: sessionParam });
-
-            console.log('Session:', session[0].session_key);
-            console.log('Project:', project[0].project_id);
-            if (session[0].session_key === project[0].associated_session_key){
-                console.log('Project has been loaded sucessfully!');
-                res.status(200).json({ message: 'Project has been loaded sucessfully!' });
-
-            }else{
-                console.error('The current session does not have permissions for this project');
-                res.status(401).json({ message: 'The current session does not have permissions for this project' });
+            const project = await db.getAll('project', { project_id: projectParam });
+            console.log(project)
+            // authenticate if the current project belongs to the questioned session
+            try {
+                const session = await db.getAll('session', { session_key: sessionParam });
+    
+                console.log('Session:', session[0].session_key);
+                console.log('Project:', project[0].project_id);
+                if (session[0].session_key === project[0].associated_session_key){
+                    console.log('Project has been loaded sucessfully!');
+                    res.status(200).json({ message: 'Project has been loaded sucessfully!' });
+    
+                }else{
+                    console.error('The current session does not have permissions for this project');
+                    res.status(401).json({ message: 'The current session does not have permissions for this project' });
+                }
+    
+            } catch (error) {
+                console.error('Error fetching sessions:', error.message);
+                res.status(500).json({ error: error.message });
             }
-
+    
+    
+    
         } catch (error) {
-            console.error('Error fetching sessions:', error.message);
+            console.error('Error fetching projects:', error.message);
             res.status(500).json({ error: error.message });
         }
-
-
-
-    } catch (error) {
-        console.error('Error fetching projects:', error.message);
-        res.status(500).json({ error: error.message });
+    }else{
+        console.error("Cannot connect to database");
+        res.status(500).json({ error: "Cannot connect to database" });
     }
+
 });
 
 router.put("/update-project/:id", async (req, res) => {
