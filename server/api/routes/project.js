@@ -26,10 +26,10 @@ router.get('/authenticate-project', async (req, res) => {
             console.log(project)
             // authenticate if the current project belongs to the questioned session
             try {
+                console.log("Accessing sessions...");
                 const session = await db.getAll('session', { session_key: sessionParam });
-    
-                console.log('Session:', session[0].session_key);
-                console.log('Project:', project[0].project_id);
+                //console.log('Session:', session[0].session_key);
+                //console.log('Project:', project[0].project_id);
                 if (session[0].session_key === project[0].associated_session_key){
                     console.log('Project has been loaded sucessfully!');
                     res.status(200).json({ message: 'Project has been loaded sucessfully!' });
