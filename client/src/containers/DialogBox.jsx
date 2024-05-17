@@ -6,7 +6,7 @@ const DialogBox = ({headMessage, children, iconType}) =>{
         color: 'rgb(248, 105, 69)'
     };
     if (iconType == "info"){
-        icon = "🛈";
+        icon = "ⓘ";
         iconStyle = {
             color: 'rgb(20, 183, 195)'
         };

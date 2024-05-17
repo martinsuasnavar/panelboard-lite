@@ -5,12 +5,16 @@ let localHost = false;
 if (window.location.href.indexOf("localhost") > -1) {
     localHost = true;
 }
+let customDomain = false;
 
 const localPort = 5000;
 
 let backendDomain = `https://panelboard-lite-api.vercel.app/api`;
 if (localHost){
     backendDomain = `http://localhost:${localPort}/api`;
+}
+if (customDomain){
+    backendDomain = `?:${localPort}/api`;
 }
 export { backendDomain };
 
