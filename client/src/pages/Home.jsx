@@ -3,10 +3,7 @@ import Image from "../supports/Image/Image";
 import WhiteSpace from "../supports/WhiteSpace/WhiteSpace";
 import { useState, useEffect } from "react";
 
-const Home = () => {
-    const [logoSize, setLogoSize] = useState(140);
-    const [logoMotto, setLogoMotto] = useState("Simple and Effective.");
-    
+function InitializeLogoSize(logoSize,setLogoSize,logoMotto,setLogoMotto){
     useEffect(() => {
         const mediaQuery = window.matchMedia('(max-width: 600px)');
         const smallLogo = 70;
@@ -23,11 +20,19 @@ const Home = () => {
         };
         mediaQuery.addEventListener('change', handleChange);
 
+     
         // Clean up by removing event listener
         return () => {
             mediaQuery.removeEventListener('change', handleChange);
+    
         };
     }, []); // Empty dependency array ensures this effect runs only once
+}
+
+const Home = () => {
+    const [logoSize, setLogoSize] = useState(140);
+    const [logoMotto, setLogoMotto] = useState("Simple and Effective.");
+    InitializeLogoSize(logoSize,setLogoSize,logoMotto,setLogoMotto);
 
     return (
         <main className="home">
