@@ -3,6 +3,24 @@ import Image from "../supports/Image/Image";
 import WhiteSpace from "../supports/WhiteSpace/WhiteSpace";
 import { useState, useEffect } from "react";
 
+const Home = () => {
+    const [logoSize, setLogoSize] = useState(140);
+    const [logoMotto, setLogoMotto] = useState("Simple and Effective.");
+    InitializeLogoSize(logoSize,setLogoSize,logoMotto,setLogoMotto);
+
+    return (
+        <main className="home">
+            <div className="home-elements">
+                <Image src="/images/logo.png" height={logoSize}></Image>
+                <WhiteSpace height={100}/>
+                <div className="big-title-text">{logoMotto}</div>
+            </div>
+        </main>
+    );
+};
+
+export default Home;
+
 function InitializeLogoSize(logoSize,setLogoSize,logoMotto,setLogoMotto){
     useEffect(() => {
         const mediaQuery = window.matchMedia('(max-width: 600px)');
@@ -28,21 +46,3 @@ function InitializeLogoSize(logoSize,setLogoSize,logoMotto,setLogoMotto){
         };
     }, []); // Empty dependency array ensures this effect runs only once
 }
-
-const Home = () => {
-    const [logoSize, setLogoSize] = useState(140);
-    const [logoMotto, setLogoMotto] = useState("Simple and Effective.");
-    InitializeLogoSize(logoSize,setLogoSize,logoMotto,setLogoMotto);
-
-    return (
-        <main className="home">
-            <div className="home-elements">
-                <Image src="/images/logo.png" height={logoSize}></Image>
-                <WhiteSpace height={100}/>
-                <div className="big-title-text">{logoMotto}</div>
-            </div>
-        </main>
-    );
-};
-
-export default Home;

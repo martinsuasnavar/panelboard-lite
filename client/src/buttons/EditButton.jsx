@@ -7,9 +7,9 @@ const EditButton = ({onClick, children, height, width}) =>{
     };
 
     return(
-        <div className="edit-button" onClick={onClick} style={divStyle}>
-            <content>{children}</content>
-        </div>
+        <a className="edit-button" onClick={onClick} style={divStyle}>
+            <span>{children}</span>
+        </a>
     );
 };
 

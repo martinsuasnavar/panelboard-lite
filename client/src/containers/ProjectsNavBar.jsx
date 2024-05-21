@@ -14,9 +14,8 @@ const ProjectsNavBar = ({sessionKey, updatedStatus}) =>{
     const [projects, setProjects] = useState([]);
     const { id } = useParams();
     const [project, setSelectedProject] = useState();
-    const [currentProjectId, setCurrentProjectId] = useState(id);
 
-    console.log('The session key passed to ProjectsNavBar.jsx is ' + sessionKey);
+    //console.log('The session key passed to ProjectsNavBar.jsx is ' + sessionKey);
 
     //
     //// fetching
@@ -35,10 +34,10 @@ const ProjectsNavBar = ({sessionKey, updatedStatus}) =>{
     };
 
     const fetchProjects = async () =>{
-        console.log("Fetching projects in ProjectsNavBar.jsx...");
+        //console.log("Fetching projects in ProjectsNavBar.jsx...");
         const data = await callApi(`${backendDomain}/sessions/${sessionKey}/projects`, 'GET');
         setProjects(data);
-        console.log(projects);
+        //console.log(projects);
     }
     
     //console.log(projects)

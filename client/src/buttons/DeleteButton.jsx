@@ -7,9 +7,9 @@ const DeleteButton = ({onClick, children, height, width}) =>{
     };
 
     return(
-        <div className="delete-button" onClick={onClick} style={divStyle}>
-            <content>{children}</content>
-        </div>
+        <a className="delete-button" onClick={onClick} style={divStyle}>
+            <span>{children}</span>
+        </a>
     );
 };
 

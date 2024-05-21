@@ -134,7 +134,7 @@ const Note = ({ noteId, projectId, containerId, children, onUpdate, onGreenClick
 
       {/* Note buttons conditional */}
       {isEditing ? (
-        <section className="note-buttons">
+        <div className="note-buttons">
           <EditButton onClick={updateNote} width={30} height={30}>
             ✓
           </EditButton>
@@ -142,7 +142,7 @@ const Note = ({ noteId, projectId, containerId, children, onUpdate, onGreenClick
           <DeleteButton onClick={deleteNote} width={30} height={30}>
             <Image src="/images/trash-icon.png" height={20} />
           </DeleteButton>
-        </section>
+        </div>
       ) : (
         <section>
           {/* nothing is displayed */}

@@ -30,20 +30,20 @@ const Panel = ({ height, projectId, panelId, panelTitle, children, onClick }) =>
     };
 
     return (
-        <div
+        <main
           className="panel"
           ref={setDroppableRef}
           style={style}
           onDrop={handleDrop}
         >
           <section className="title">
-            <text>{panelTitle}</text>
+            <div>{panelTitle}</div>
             <AddButton squareSize={30} onClick={onClick} />
           </section>
           <WhiteSpace height={10} />
           {/*<div style={{color: 'grey'}}>panel-{panelId}  </div>*/}
           {children}
-        </div>
+        </main>
       );
     };
     
