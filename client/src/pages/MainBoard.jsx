@@ -7,6 +7,7 @@ import { backendDomain, currentProjectName, selectedProjectId } from "../global"
 
 import Panel from "../elements/Panel";
 import Note from "../elements/Note";
+import GenericButton from "../buttons/GenericButton";
 import DeleteButton from "../buttons/DeleteButton";
 import EditButton from "../buttons/EditButton";
 import DialogBox from "../containers/DialogBox";
@@ -200,10 +201,10 @@ const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
                             <div>
                                 <DialogBox headMessage={"Open a new project or save this one. WARNING: opening a new project overrides the one you've selected."}>
                                     
-                                    <EditButton width={70} height={30} 
+                                    <GenericButton width={70} height={30} 
                                     onClick={() => toggleSaveWarning()}>
                                         Cancel
-                                    </EditButton>
+                                    </GenericButton>
 
 
                                     <DeleteButton width={70} height={30} 
@@ -211,10 +212,10 @@ const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
                                         Open
                                     </DeleteButton>
 
-                                    <EditButton width={70} height={30} 
+                                    <GenericButton width={70} height={30} 
                                     onClick={() => SaveFile(panels,notes)}>
                                         Save
-                                    </EditButton>
+                                    </GenericButton>
 
                                 </DialogBox>
                             </div>
@@ -230,10 +231,10 @@ const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
                                         Yes
                                     </DeleteButton>
 
-                                    <EditButton width={50} height={30} 
+                                    <GenericButton width={50} height={30} 
                                     onClick={() => toggleDeleteWarning()}>
                                         No
-                                    </EditButton>
+                                    </GenericButton>
 
                                 </DialogBox>
                             </div>
