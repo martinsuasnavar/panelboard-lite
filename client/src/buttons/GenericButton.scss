@@ -1,10 +1,10 @@
-$button-color: rgb(252, 81, 39);
+$button-color: rgba(247, 0, 0, 0);
 
-.delete-button{
+.generic-button{
     background-color: $button-color;
     border-radius: 10px;
-    color: white;
-    font-weight: 400;
+    color: rgb(253, 235, 227);
+    font-weight: 500;
     position: relative;
     margin: auto;
     display: flex;
@@ -20,12 +20,13 @@ $button-color: rgb(252, 81, 39);
             user-select: none; /* Non-prefixed version, currently
                                   supported by Chrome, Edge, Opera and Firefox */
   span{
-      display: flex;
-      justify-content: center;
+    display: flex;
+    justify-content: center;
       align-items: center;
+    
   }
 }
 
-.delete-button:hover{
-  background-color: lighten($color: $button-color, $amount: 20);
+.generic-button:hover{
+  color: white;
 }

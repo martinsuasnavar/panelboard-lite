@@ -1,3 +1,5 @@
+import "./GenericButton.scss";
+
 const GenericButton = ({onClick, children, height, width}) =>{
     const divStyle={
         height: `${height}px`,
@@ -5,7 +7,7 @@ const GenericButton = ({onClick, children, height, width}) =>{
     };
 
     return(
-        <a className="edit-button" onClick={onClick} style={divStyle}>
+        <a className="generic-button" onClick={onClick} style={divStyle}>
             <span>{children}</span>
         </a>
     );

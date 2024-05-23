@@ -199,14 +199,7 @@ const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
                         {/* dialog box conditional, in use if a project is about to be deleted */}
                         {saveBox &&
                             <div>
-                                <DialogBox headMessage={"Open a new project or save this one. WARNING: opening a new project overrides the one you've selected."}>
-                                    
-                                    <GenericButton width={70} height={30} 
-                                    onClick={() => toggleSaveWarning()}>
-                                        Cancel
-                                    </GenericButton>
-
-
+                                <DialogBox headMessage={"Open a new project or save this one. \nWARNING: opening a new project overrides the one you've selected."}>
                                     <DeleteButton width={70} height={30} 
                                     onClick={() => getFile()}>
                                         Open
@@ -217,6 +210,11 @@ const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
                                         Save
                                     </GenericButton>
 
+                                    <GenericButton width={70} height={30} 
+                                    onClick={() => toggleSaveWarning()}>
+                                        Cancel
+                                    </GenericButton>
+
                                 </DialogBox>
                             </div>
                         }
@@ -224,16 +222,16 @@ const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
 
                         {dialogBox &&
                             <div>
-                                <DialogBox headMessage={"Are you sure you want to delete this project?"}>
+                                <DialogBox headMessage={`Delete this project?\nWARNING: this action is irrevocable.`}>
 
-                                    <DeleteButton width={50} height={30} 
+                                    <DeleteButton width={70} height={30} 
                                     onClick={() => deleteProject()}>
-                                        Yes
+                                        Delete
                                     </DeleteButton>
 
                                     <GenericButton width={50} height={30} 
                                     onClick={() => toggleDeleteWarning()}>
-                                        No
+                                        Cancel
                                     </GenericButton>
 
                                 </DialogBox>
