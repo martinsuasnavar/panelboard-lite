@@ -20,6 +20,8 @@ import { callApi } from "../supports/Fetch/Fetch";
 import {DndContext} from '@dnd-kit/core';
 import ThemedButton from "../buttons/ThemedButton";
 
+import Cookies from 'js-cookie';
+
 const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
     const { id } = useParams();
     const [loading, setLoading] = useState(true);
@@ -32,6 +34,14 @@ const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
     useEffect (() =>{
         verifyProject();
     }, [id])
+
+    const deleteAllCookies = () => {
+        const allCookies = Cookies.get(); // Get all cookies
+        Object.keys(allCookies).forEach((cookie) => {
+          Cookies.remove(cookie); // Remove each cookie
+        });
+        window.location.reload()
+      };
 
     const [validProject, setProjectAsValid] = useState(false);
     const verifyProject = async () =>{
@@ -181,7 +191,11 @@ const MainBoard = ({sessionKey, onUpdate, onThemeUpdate}) =>{
                 <div>
                 {!validProject ? (
                     <div>
-                        <DialogBox headMessage={"ERROR 401 - The permission to load up this project was not reached out. Please try again later. "}>
+                        <DialogBox headMessage={"ERROR 401 - No permissions. Please try again later. If the problem persists. clear cookies. "}>
+                        <DeleteButton width={70} height={30} 
+                            onClick={() => deleteProject()}>
+                                    Clear cookies.
+                       </DeleteButton>
                         <EditButton width={120} height={30} 
                                     onClick={() => window.location.reload(false)}>
                                     Refresh page

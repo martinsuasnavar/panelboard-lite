@@ -196,6 +196,21 @@ html, body {
     }
 }
 
+.title-text{
+    color: $text-color;
+}
+.title-text.small{
+   font-size: 0.5rem;
+}
+.title-text.medium{
+    font-size: 1rem;
+ }
+ .title-text.big{
+    font-size: 2rem;
+ }
+
+
+//legacy class
 .big-title-text{
     color: $text-color;
     font-size: 2rem;
